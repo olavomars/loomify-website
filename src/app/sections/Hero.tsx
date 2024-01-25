@@ -3,7 +3,7 @@ import Button from '@/components/shared/Button';
 import Image from 'next/image';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { slideIn, staggerContainer, textVariant } from '@/utils/motion';
+import { textVariant } from '@/utils/motion';
 
 import arrowIcon from '../../../public/assets/icons/Arrow-vector.svg';
 
@@ -15,8 +15,8 @@ export default function Hero() {
     offset: ['end end', 'start start'],
   });
 
-  const startRotation = 35;
-  const endRotation = -45;
+  const startRotation = 100;
+  const endRotation = -5;
 
   const rotate = useTransform(
     scrollYProgress,
@@ -27,22 +27,21 @@ export default function Hero() {
   return (
     <section>
       <motion.div
-        variants={staggerContainer}
         initial='hidden'
         whileInView='show'
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         className='w-full h-full relative flex flex-col justify-start cursor-default select-none'
       >
         <div>
           <motion.h1
-            variants={textVariant(1.1)}
+            variants={textVariant(0.5)}
             className='text-[16rem] font-extrabold text-primary'
           >
             Loomify
           </motion.h1>
           <motion.h2
             className='text-secondary font-medium text-5xl leading-tight pl-3 mb-6'
-            variants={textVariant(1.3)}
+            variants={textVariant(0.7)}
           >
             Your Startup&apos;s Design & Development Ally.
             <br />
@@ -52,7 +51,7 @@ export default function Hero() {
           </motion.h2>
         </div>
         <motion.div
-          variants={textVariant(1.4)}
+          variants={textVariant(0.9)}
           className='flex items-center max-w-[400px]'
         >
           <Button btnType='primary' text='Get Started' />
@@ -60,8 +59,9 @@ export default function Hero() {
         </motion.div>
         <div ref={arrowRef}>
           <motion.div
-            variants={textVariant(1.5)}
-            style={{ rotate: rotate }}
+            variants={textVariant(1.1)}
+            style={{ rotate }}
+            transition={{ type: 'spring', stiffness: 20 }}
             className='absolute right-0 top-[80%]'
           >
             <Image src={arrowIcon} alt='scroll down arrow' />
