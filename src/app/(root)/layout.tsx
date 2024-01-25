@@ -5,7 +5,7 @@ import '../globals.css';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Loomia - design & development',
+  title: 'Loomify - design & development',
   description:
     "Your Startup's Design & Development Ally. Upgrade Your Process.",
 };
