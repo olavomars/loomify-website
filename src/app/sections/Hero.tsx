@@ -18,7 +18,7 @@ export default function Hero() {
   const startRotationSmall = -95;
   const endRotationSmall = -45;
 
-  const startRotationLarge = 10;
+  const startRotationLarge = 5;
   const endRotationLarge = -45;
 
   let startRotation = startRotationSmall;
@@ -73,8 +73,7 @@ export default function Hero() {
             ref={arrowRef}
             variants={textVariant(1.1)}
             style={{ rotate }}
-            transition={{ type: 'spring', stiffness: 20 }}
-            className={`max-lg:left-0 max-lg:top-[80%] max-lg:w-28 absolute right-0 top-[70%]`}
+            className={`max-lg:left-0 max-lg:top-[80%] max-lg:w-28 absolute right-0 top-[70%] transition-rotate duration-300`}
           >
             <Image src={arrowIcon} alt='scroll down arrow' />
           </motion.div>
