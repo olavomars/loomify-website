@@ -5,6 +5,7 @@ import Cursor from '@/components/shared/Cursor';
 import Hero from '../sections/Hero';
 import Preloader from '@/components/ui/Preloader';
 import Paragraph from '../sections/Paragraph';
+import GridPortfolio from '../sections/GridPortfolio';
 
 const PRELOADER_TIMEOUT = 6000;
 
@@ -22,6 +23,7 @@ export default function Home() {
           <div className='w-full h-full flex flex-col justify-center max-w-screen-xl '>
             <Hero />
             <Paragraph />
+            <GridPortfolio />
           </div>
           <div className='h-[1500px]'></div>
           <Cursor />

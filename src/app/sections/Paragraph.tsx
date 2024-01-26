@@ -25,7 +25,7 @@ export default function Paragraph() {
       initial='hidden'
       whileInView='show'
       viewport={{ once: true, amount: 0.25 }}
-      className='w-full h-[16rem]'
+      className='w-full h-[16rem] mb-12 lg:mb-32 '
     >
       <p
         ref={container}

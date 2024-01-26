@@ -51,7 +51,7 @@ export default function Hero() {
             Loomify
           </motion.h1>
           <motion.h2
-            className='text-secondary font-medium text-md lg:text-5xl leading-tight pl-3 mb-6'
+            className='text-secondary font-medium text-md lg:text-5xl leading-tight lg:pl-3 max-lg:px-4 mb-6'
             variants={textVariant(0.7)}
           >
             Your Startup&apos;s Design & Development Ally.
