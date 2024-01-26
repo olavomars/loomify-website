@@ -15,10 +15,10 @@ export default function Hero() {
     offset: ['end end', 'start start'],
   });
 
-  const startRotationSmall = -114;
+  const startRotationSmall = -95;
   const endRotationSmall = -45;
 
-  const startRotationLarge = 15;
+  const startRotationLarge = 10;
   const endRotationLarge = -45;
 
   let startRotation = startRotationSmall;
@@ -41,7 +41,7 @@ export default function Hero() {
         initial='hidden'
         whileInView='show'
         viewport={{ once: true, amount: 0.25 }}
-        className='w-full h-screen relative flex flex-col justify-center cursor-default select-none'
+        className='w-full h-screen relative flex flex-col justify-center cursor-default select-none p-10'
       >
         <div className='flex flex-col max-lg:items-center max-lg:text-center'>
           <motion.h1
@@ -68,8 +68,9 @@ export default function Hero() {
           <Button btnType='primary' text='Get Started' />
           <Button btnType='secondary' text='Book a Call' />
         </motion.div>
-        <div ref={arrowRef}>
+        <div>
           <motion.div
+            ref={arrowRef}
             variants={textVariant(1.1)}
             style={{ rotate }}
             transition={{ type: 'spring', stiffness: 20 }}
