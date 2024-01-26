@@ -14,21 +14,25 @@ export default function Preloader({
   const [visible, setVisible] = useState(isVisible);
 
   useEffect(() => {
-    setTimeout(() => setVisible(false), timeout - 500);
+    setTimeout(() => setVisible(false), timeout - 1000);
   });
 
   const title = preLoaderTexts[0].en[0].title;
   const text = preLoaderTexts[0].en[1].subtitle;
 
-  const words = title?.split('');
+  const titleLetters = title?.split('');
+  const textWords = text?.split(' ');
 
-  const container = {
+  const container = (staggerValue: number, delayValue: number) => ({
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+      transition: {
+        staggerChildren: staggerValue,
+        delayChildren: delayValue * i,
+      },
     }),
-  };
+  });
 
   const child = {
     visible: {
@@ -37,6 +41,7 @@ export default function Preloader({
       transition: {
         type: 'spring',
         damping: 12,
+        ease: 'easeInOut',
         stiffness: 80,
       },
     },
@@ -46,7 +51,7 @@ export default function Preloader({
       transition: {
         type: 'spring',
         duration: 1.25,
-
+        ease: 'easeInOut',
         stiffness: 80,
       },
     },
@@ -57,26 +62,30 @@ export default function Preloader({
       {visible && (
         <div className='w-full h-screen flex flex-col-reverse items-center justify-center'>
           <div>
-            <motion.h1
+            <motion.div
+              variants={container(0.5, 0.01)}
               initial='hidden'
-              animate='show'
+              animate='visible'
               exit='hidden'
-              variants={textVariant(1.4)}
-              className='text-2xl font-medium text-secondary'
+              className='text-2xl flex md:flex-row  text-row font-medium'
             >
-              {text}
-            </motion.h1>
+              {textWords?.map((word, index) => (
+                <motion.h3 variants={child} className='mr-2' key={index}>
+                  {word}
+                </motion.h3>
+              ))}
+            </motion.div>
           </div>
           <motion.div
-            variants={container}
+            variants={container(0.05, 2)}
             initial='hidden'
             animate='visible'
             exit='hidden'
             className='text-7xl flex md:flex-row  text-primary font-bold'
           >
-            {words?.map((word, index) => (
+            {titleLetters?.map((letter, index) => (
               <motion.h3 variants={child} className='mr-2' key={index}>
-                {word}
+                {letter}
               </motion.h3>
             ))}
           </motion.div>

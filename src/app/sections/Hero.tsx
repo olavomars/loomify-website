@@ -15,8 +15,19 @@ export default function Hero() {
     offset: ['end end', 'start start'],
   });
 
-  const startRotation = 100;
-  const endRotation = -5;
+  const startRotationSmall = -114;
+  const endRotationSmall = -45;
+
+  const startRotationLarge = 15;
+  const endRotationLarge = -45;
+
+  let startRotation = startRotationSmall;
+  let endRotation = endRotationSmall;
+
+  if (window.innerWidth >= 1024) {
+    startRotation = startRotationLarge;
+    endRotation = endRotationLarge;
+  }
 
   const rotate = useTransform(
     scrollYProgress,
@@ -30,17 +41,17 @@ export default function Hero() {
         initial='hidden'
         whileInView='show'
         viewport={{ once: true, amount: 0.25 }}
-        className='w-full h-full relative flex flex-col justify-start cursor-default select-none'
+        className='w-full h-screen relative flex flex-col justify-center cursor-default select-none'
       >
-        <div>
+        <div className='flex flex-col max-lg:items-center max-lg:text-center'>
           <motion.h1
             variants={textVariant(0.5)}
-            className='text-[16rem] font-extrabold text-primary'
+            className='text-6xl lg:text-[16rem] max-lg:mb-6 lg:mb-10 font-extrabold text-primary'
           >
             Loomify
           </motion.h1>
           <motion.h2
-            className='text-secondary font-medium text-5xl leading-tight pl-3 mb-6'
+            className='text-secondary font-medium text-md lg:text-5xl leading-tight pl-3 mb-6'
             variants={textVariant(0.7)}
           >
             Your Startup&apos;s Design & Development Ally.
@@ -52,7 +63,7 @@ export default function Hero() {
         </div>
         <motion.div
           variants={textVariant(0.9)}
-          className='flex items-center max-w-[400px]'
+          className='flex max-lg:flex-col items-center max-w-[400px]'
         >
           <Button btnType='primary' text='Get Started' />
           <Button btnType='secondary' text='Book a Call' />
@@ -62,7 +73,7 @@ export default function Hero() {
             variants={textVariant(1.1)}
             style={{ rotate }}
             transition={{ type: 'spring', stiffness: 20 }}
-            className='absolute right-0 top-[80%]'
+            className={`max-lg:left-0 max-lg:top-[80%] max-lg:w-28 absolute right-0 top-[70%]`}
           >
             <Image src={arrowIcon} alt='scroll down arrow' />
           </motion.div>
