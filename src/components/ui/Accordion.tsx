@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { textVariant } from '@/utils/motion';
+import { staggerContainer, textVariant } from '@/utils/motion';
 import Image from 'next/image';
 import openClosedArrow from '/public/assets/icons/open-closed-arrow.svg';
 
@@ -29,9 +29,14 @@ export default function AccordionComponent({ items }: any) {
   };
 
   return (
-    <div>
+    <motion.div
+      variants={staggerContainer(0.9, 1.2)}
+      initial='hidden'
+      whileInView='show'
+      viewport={{ once: true, amount: 0.25 }}
+    >
       {items.map((item: any, index: any) => (
-        <div key={index}>
+        <motion.div variants={textVariant(0.5)} key={index}>
           <div
             onClick={() => toggleItem(index)}
             className='text-primary my-8 lg:my-12 max-lg:justify-between cursor-pointer text-2xl lg:text-5xl flex gap-6 font-light'
@@ -61,8 +66,8 @@ export default function AccordionComponent({ items }: any) {
               <div className='h-[1px] w-full bg-primary'></div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
