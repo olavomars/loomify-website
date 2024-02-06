@@ -21,7 +21,7 @@ export default function Paragraph() {
 
   return (
     <motion.div
-      variants={textVariant(0.5)}
+      variants={textVariant(0.2)}
       initial='hidden'
       whileInView='show'
       viewport={{ once: true, amount: 0.25 }}
