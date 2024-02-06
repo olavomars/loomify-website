@@ -45,7 +45,23 @@ export default function Hero() {
       >
         <div className='flex flex-col max-lg:items-center max-lg:text-center'>
           <motion.h1
-            variants={textVariant(0.5)}
+            initial={{
+              y: 100,
+              scale: 0.9,
+              opacity: 0,
+              rotateX: -60,
+            }}
+            animate={{
+              y: 0,
+              scale: 1,
+              opacity: 1,
+              rotateX: 0,
+              transition: {
+                type: 'spring',
+                duration: 2.5,
+                delay: 0.5,
+              },
+            }}
             className='text-6xl lg:text-[16rem] max-lg:mb-6 lg:mb-10 font-extrabold text-primary'
           >
             Loomify
