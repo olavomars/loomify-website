@@ -7,6 +7,7 @@ import Preloader from '@/components/ui/Preloader';
 import Paragraph from '../sections/Paragraph';
 import GridPortfolio from '../sections/GridPortfolio';
 import AccordionSection from '../sections/Accordion';
+import WorkflowDescription from '../sections/WorkflowDescription';
 
 const PRELOADER_TIMEOUT = 6000;
 
@@ -26,6 +27,7 @@ export default function Home() {
             <Paragraph />
             <GridPortfolio />
             <AccordionSection />
+            <WorkflowDescription />
           </div>
           <div className='h-[1500px]'></div>
           <Cursor />
