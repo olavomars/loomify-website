@@ -41,7 +41,7 @@ export default function WorkflowDescription() {
         <motion.div variants={textVariant(0.9)}>
           <WorkflowCard
             title='Revise'
-            description="Need changes? We guarantee unlimited revisions until you's are 100% satisfied.  "
+            description='Need changes? We guarantee unlimited revisions until you are 100% satisfied.  '
           />
         </motion.div>
       </motion.div>

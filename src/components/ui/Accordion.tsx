@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { staggerContainer, textVariant } from '@/utils/motion';
 import Image from 'next/image';
-import openClosedArrow from '/public/assets/icons/open-closed-arrow.svg';
+import openClosedArrow from '../../../public/assets/icons/open-closed-arrow.svg';
 
 const AccordionItem = ({ isOpen, children }: any) => {
   return (
